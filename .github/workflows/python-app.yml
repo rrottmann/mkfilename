@@ -78,14 +78,20 @@ jobs:
       shell: bash
       run: |
         pytest
-    - name: Package application
+    - name: Build application
       shell: bash
       run: |
         python setup.py build
+    - name: Set build directory
+      id: set_build_directory
+      shell: bash
+      run: |
+        echo "::set-output name=bdir::$(find build -iname  mkfilename)"
+    - name: Package application
+      shell: bash
+      run: |
         mkdir dist
-        cd build
-        dname=$(find . -iname  mkfilename)
-        bdir=$(dirname $dname)
+        bdir=$(dirname ${{steps.set_build_directory.outputs.bdir}})
         cd $bdir
         zip -r ../../dist/mkfilename_windows.zip *
     - name: Upload Artifacts
