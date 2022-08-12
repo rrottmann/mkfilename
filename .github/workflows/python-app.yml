@@ -82,18 +82,11 @@ jobs:
       shell: bash
       run: |
         python setup.py build
-    - name: Set build directory
-      id: set_build_directory
-      shell: bash
-      run: |
-        echo "::set-output name=bdir::$(find build -iname  mkfilename)"
-    - name: Package application
-      shell: bash
-      run: |
         mkdir dist
-        bdir=$(dirname ${{steps.set_build_directory.outputs.bdir}})
-        cd $bdir
-        zip -r ../../dist/mkfilename_windows.zip *
+        cd build/exe*
+        mv * ..
+        rmdir exe*
+        zip -r ../dist/mkfilename_windows.zip *
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2
       with:
