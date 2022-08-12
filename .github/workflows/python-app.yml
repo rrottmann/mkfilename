@@ -48,8 +48,8 @@ jobs:
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2
       with:
-       name: mkfilename
-       path: "./dist"
+       name: mkfilename_linux
+       path: "./dist/*linux*"   
 
   build-windows:
 
@@ -93,9 +93,4 @@ jobs:
       with:
        name: mkfilename_windows
        path: "./dist/*windows*"
-    - name: Upload Artifacts
-      uses: actions/upload-artifact@v2
-      with:
-       name: mkfilename_linux
-       path: "./dist/*linux*"   
 
