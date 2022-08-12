@@ -45,7 +45,7 @@ jobs:
         bdir=$(dirname `find . -iname  mkfilename`)
         cd $bdir
         zip -r ../../dist/mkfilename.zip *
-   - name: Upload Artifacts
+    - name: Upload Artifacts
       uses: actions/upload-artifact@v2
       with:
        name: mkfilename
