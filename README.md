@@ -1,4 +1,6 @@
 # mkfilename
+[![Python application](https://github.com/rrottmann/mkfilename/actions/workflows/python-app.yml/badge.svg)](https://github.com/rrottmann/mkfilename/actions/workflows/python-app.yml)
+
 Utility to generate filenames for archiving.
 
 ## Why?
