@@ -39,7 +39,7 @@ jobs:
         pytest
     - name: Package application
       run: |
-        python setup.py build
+        cxfreeze mkfilename.py
         mkdir dist
         cd build
         bdir=$(dirname `find . -iname  mkfilename`)
@@ -81,7 +81,7 @@ jobs:
     - name: Build application
       shell: bash
       run: |
-        python setup.py build
+        cxfreeze mkfilename.py
         mkdir dist
         cd build/exe*
         mv * ..
