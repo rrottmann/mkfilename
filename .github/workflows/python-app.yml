@@ -40,3 +40,13 @@ jobs:
     - name: Package application
       run: |
         python setup.py build
+        mkdir dist
+        cd build
+        bdir=$(dirname `find . -iname  mkfilename`)
+        cd $bdir
+        zip -r ../../dist/mkfilename.zip *
+- name: Upload Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+       name: mkfilename
+       path: "./dist"   
