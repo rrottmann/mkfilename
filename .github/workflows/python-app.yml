@@ -85,7 +85,6 @@ jobs:
         mkdir dist
         cd build/exe*
         mv * ..
-        rmdir exe*
         zip -r ../dist/mkfilename_windows.zip *
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2
