@@ -84,7 +84,8 @@ jobs:
         python setup.py build
         mkdir dist
         cd build
-        bdir=$(dirname `find . -iname  mkfilename`)
+        dname=$(find . -iname  mkfilename)
+        bdir=$(dirname $dname)
         cd $bdir
         zip -r ../../dist/mkfilename_windows.zip *
     - name: Upload Artifacts
